@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre panier - Orinoco</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/7e4732a8a2.js" crossorigin="anonymous"></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="navItems">
+                <li><a href="index.html"><i class="fas fa-home hide-desktop"></i><span class="show-desktop">Accueil</span></a></li>
+                <li class="logo"><img src="images/logoOrinoco.png" alt="logo"></li>
+                <li><a href="panier.html?page=panier"><i class="fas fa-shopping-bag"><span id="produit-count"></span></i></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="card-container">
+            <h1>Votre panier</h1>
+            <div id="panier">
+                <table>
+                    <thead id="thead">
+                        <tr>
+                            <th>PRODUIT</th>
+                            <th>COULEUR</th>
+                            <th>QUANTITEE</th>
+                            <th>PRIX</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                    </tbody>
+                </table>
+                <table id="total-price">
+                    <tr>
+                        <th>Montant de la commande</th>
+                    </tr>
+                    <tr>
+                        <td id="total-price-amount">montant</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+
+        <div id="form-container">
+            <h2 class="info-user-container">Veuillez renseigner le formulaire pour finaliser votre commande</h2>
+
+            <form method="post" onsubmit="return validateForm()" >
+                <div class="input-container">
+                    <label for="user-first-name">Firstname</label>
+                    <input type="text" id="user-first-name"><br>
+                    <span id="require-firstname"></span><br>
+                </div>
+
+                <div class="input-container">
+                    <label for="user-last-name">Lastname</label>
+                    <input type="text" id="user-last-name"><br>
+                    <span id="require-lastname"></span><br>
+                </div>
+
+                <div class="input-container">
+                    <label for="user-adress">Address</label>
+                    <input type="text" id="user-adress"><br>
+                    <span id="require-adress"></span><br>
+                </div>
+
+                <div class="input-container">
+                    <label for="user-city">City</label>
+                    <input type="text" id="user-city"><br>
+                    <span id="require-city"></span><br>
+                </div>
+
+                <div class="input-container">
+                    <label for="user-email">Email</label>
+                    <input type="text" id="user-email"><br>
+                    <span id="require-email"></span>
+                </div>
+            </form>
+
+            <button type="submit" id="btn-valider" >Valider</button>
+        </div>
+
+
+    </main>
+
+    <footer>
+        <a href="#/" class="logoF"><img src="images/logoOrinoco.png" alt="logo"></a>
+        <ul class="navFooter">
+            <li><a href="#/"> Politique de confidentialité</a></li>
+            <li><a href="#/">Mentions légales</a></li>
+            <li><a href="mailto:orinoco@contact.com">Contact</a> </li>
+        </ul>
+        <ul class="socials">
+            <li><a href="#/"><i class="fab fa-facebook-f"></i></a></li>
+            <li><a href="#/"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="#/"><i class="fab fa-instagram"></i></a></li>
+        </ul>
+    </footer>
+
+</body>
+</html>

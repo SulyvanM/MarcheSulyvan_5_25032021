@@ -6,6 +6,7 @@ function getOursList(){
 
     for(i=0; i<data.length; i++){
         const cardContainer = document.getElementById('card-container');
+        // Créer la strucutre des produits sur la page d'accueil
         var structureCard  = `
         <div class="card">
         <a href='produit.html?id=${data[i]._id}'>
@@ -32,6 +33,7 @@ function getOursById(idOurs){
         .then(data => {
 
             const cardContainer = document.getElementById('card-container');
+            // Créer la structure des produits sur la page produit par leur ID
             var structureCard  = `
             <div class="card card-pdt">
             <img src="${data.imageUrl}" alt="" class="image">
@@ -45,6 +47,7 @@ function getOursById(idOurs){
 
             cardContainer.insertAdjacentHTML("beforeend" ,structureCard);
 
+            // Récupération des couleurs des produits en fonction de leurs ID
             const colorsSelector= document.querySelector('.colors');
             var optionColor= data.colors;
                 let structureOptions = [];
@@ -56,7 +59,7 @@ function getOursById(idOurs){
                 };
             colorsSelector.innerHTML = structureOptions;
 
-
+            // Création du bouton d'ajout des produits au panier
             var btnSelect = document.querySelector('.btn-add-to-basket');
 
             btnSelect.addEventListener('click', function(myCart){
@@ -97,7 +100,7 @@ function getOursById(idOurs){
                 var count = 1;
 
                 if(localStorage.getItem('productcount')){
-                    count = parseInt(localStorage.getItem('productcount')) + 1;
+                    count = parseInt(localStorage.getItem('productcount')) + 1; // Créer l'incrémentation au productcount présent dans le panier
                 }
                 localStorage.setItem('productcount', count);
 
@@ -107,6 +110,7 @@ function getOursById(idOurs){
         });
 };
 
+// Ajout du nombre de produit présent dans le panier sur notre header
 function basketCount(){
     if(localStorage.getItem('productcount') && document.getElementById('produit-count')){
     var productCount = document.getElementById('produit-count');
@@ -117,6 +121,7 @@ function basketCount(){
 function myBasket(){
 
 
+    // Création du tableau d'objet dans notre panier
     var produitsLocalStorage =JSON.parse(localStorage.getItem('tableauItem'));
 
     var idItemInBasket = [];
@@ -150,7 +155,7 @@ function myBasket(){
     };
 };
 
-
+// Création du formulaire de renseignement pour valider la commande
 function dataUser(){
 
     var userFirstName = document.getElementById('user-first-name');
@@ -170,6 +175,7 @@ function dataUser(){
 
     var sendForm = true;
 
+// Création des REGEX pour chaques éléments du formulaire
     let requireFirstName = document.getElementById('require-firstname');
     var letterFilter = /^[a-z]+$/i;
     if(userFirstName == ""){
@@ -241,7 +247,7 @@ function dataUser(){
     return sendForm;
 };
 
-
+// Envoie du formulaire au localStorage
 function dataBasketPost(sendForm){
 
     var produitsLocalStorage = JSON.parse(localStorage.getItem('tableauItem'));
@@ -320,6 +326,7 @@ function validationCommande(){
 
 };
 
+// Suppression du panier et des informations d'identités après validation de la commande
 function clearProductCount(){
     localStorage.removeItem('tableauItem');
     localStorage.removeItem('productcount');
